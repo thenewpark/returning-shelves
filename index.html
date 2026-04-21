@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Returned Book Shelf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-book">
+      <span class="header-label">You picked</span>
+      <span class="header-title"></span>
+      <div class="header-meta">
+        <span class="header-author"></span>
+        <span class="header-year"></span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- 배경 오버레이: book-active 시 white + gray lines 그리드로 페이드 인 -->
+    <div class="bg-overlay"></div>
+
+    <!-- 시작 화면: 정적 spine 5개 (단순 div) -->
+    <div class="static-shelf">
+      <div class="static-spine static-spine--1" data-title="Brigade Cynophile Posters" data-author="Various"
+        data-year="2023" data-spine-text="BRIGADE CYNOPHILE POSTERS">
+        <span class="static-spine-text">BRIGADE CYNOPHILE POSTERS</span>
+      </div>
+      <div class="static-spine static-spine--2" data-title="Mind Walks" data-author="Various" data-year="2022"
+        data-spine-text="MIND WALKS">
+        <span class="static-spine-text">MIND WALKS</span>
+      </div>
+      <div class="static-spine static-spine--3" data-title="Swiss Design Awards 2024" data-author="Various"
+        data-year="2024" data-spine-text="Swiss Design Awards 2024">
+        <span class="static-spine-text">Swiss Design Awards 2024</span>
+      </div>
+      <div class="static-spine static-spine--4" data-title="MacGuffin No8 The Desk" data-author="MacGuffin"
+        data-year="2020" data-spine-text="MacGuffin No8 The Desk">
+        <span class="static-spine-text">MacGuffin No8 The Desk</span>
+      </div>
+      <div class="static-spine static-spine--5" data-title="Word form language" data-author="Eugen Gomringer"
+        data-year="2021" data-spine-text="Words Form Language">
+        <span class="static-spine-text">Words Form Language</span>
+      </div>
+    </div>
+
+    <div class="start-info">
+      <h1 class="start-title">
+        <!-- 흰색 배경 (먼저 그려짐 — 텍스트보다 아래) -->
+        <span class="title-bg title-bg--1" aria-hidden="true">
+          <span class="title-text title-text--1">Returned</span>
+
+        </span>
+        <span class="title-bg title-bg--2" aria-hidden="true">
+          <span class="title-text title-text--2">Book</span>
+
+        </span>
+        <span class="title-bg title-bg--3" aria-hidden="true">
+          <span class="title-text title-text--3">Shelf</span>
+
+        </span>
+        <!-- 텍스트 (모든 배경 위에 그려짐) -->
+      </h1>
+      <p class="start-tagline">Pick up a book from the shelf,<br>explore different curations.</p>
+    </div>
+
+    <!-- 클릭 시 swap 되는 3D book (시작 시 숨김) -->
+    <div class="book-stage" id="book3d">
+      <div class="book">
+        <div class="front"></div>
+        <div class="back"></div>
+        <div class="spine">
+          <div class="spine-text"></div>
+        </div>
+        <div class="pages"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </main>
+  <div class="detail-view" id="detail-view">
+    <div class="shelf-panel" id="shelf-panel">
+      <div class="book-location-panel" id="book-location-panel">
+        <div class="location-label">
+          <p>The book is located</p>
+          <p>here in the library:</p>
+          <p>AV-190830</p>
+        </div>
+        <div class="library-diagram">
+          <div class="library-row">
+            <div class="library-spine library-spine--light"></div>
+            <div class="library-spine library-spine--selected">
+              <div class="spine-circle" id="spine-circle"></div>
+            </div>
+            <div class="library-spine library-spine--light"></div>
+          </div>
+          <div class="library-row">
+            <div class="library-spine library-spine--light"></div>
+            <div class="library-spine library-spine--light"></div>
+            <div class="library-spine library-spine--light"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-panel" id="content-panel">
+      <div class="tab-bar">
+        <button class="tab tab--designer tab--selected">Designer</button>
+        <button class="tab tab--returned">Returned with</button>
+        <button class="tab tab--materiality">Materiality</button>
+      </div>
+
+      <!-- Sub-tab: 현재 선택된 main tab(Designer)의 색을 이어받는 영역 -->
+      <div class="sub-tab-bar sub-tab-bar--designer">
+        <h2 class="sub-tab-name">Omnigroup</h2>
+        <p class="sub-tab-desc">
+          Omnigroup is a collaborative graphic design studio based in Lausanne, Switzerland, founded by Leonardo
+          Azzolini and Simon Mager. Others books from this studio are:
+        </p>
+      </div>
+
+      <div class="designer-scroll">
+        <div class="designer-track">
+        </div>
+      </div>
+      <div class="spreads-fade"></div>
+      <div class="spreads-arrow">→</div>
+      <div class="books-backdrop" id="books-backdrop"></div>
+    </div>
+    <svg class="connector-svg" id="connector-svg" xmlns="http://www.w3.org/2000/svg">
+      <line id="connector-line" stroke="#000" stroke-width="1" x1="0" y1="0" x2="0" y2="0" opacity="0" />
+    </svg>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
