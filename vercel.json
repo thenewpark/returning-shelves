@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/__woz_state",
+      "destination": "/api/woz-state"
+    },
+    {
+      "source": "/admin",
+      "destination": "/"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/"
+    }
+  ]
+}
