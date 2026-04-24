@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, type RefObject } from 'react';
+import curiousFall from './assets/curious-fall.png';
 import decadragesCover from './assets/decadrages-celine-sciamma.webp';
+import massMadeUnits from './assets/mass-made-units.png';
 import waysOfSeeing from './assets/ways-of-seeing.jpg';
 import { useSharedWizardState } from './wizardSync';
 import {
@@ -61,9 +63,12 @@ const LANDING_WORDS_BOOK = '/book1.jpg';
 const LANDING_LIFE_BOOK = '/book4.jpg';
 const LANDING_CYNOPHILE_BOOK = '/book2.jpg';
 const LANDING_DOTS_BOOK = '/book3.jpg';
-const WORDS_DESIGNER_PRIMARY = '/image 5.jpg';
-const WORDS_DESIGNER_SECONDARY = '/image 13.jpg';
-const WORDS_DESIGNER_TERTIARY = '/Screenshot 2026-04-20 at 11.24.55 1.jpg';
+const WORDS_RETURNED_KLIMA = '/image 5.jpg';
+const WORDS_RETURNED_AIR = '/image 6.jpg';
+const WORDS_RETURNED_WAYS = '/image 10.jpg';
+const WORDS_RETURNED_SMLXL = '/image 11.jpg';
+const WORDS_RETURNED_PRODUCTION = '/image 12.jpg';
+const WORDS_DESIGNER_SCHRIFTEN = '/image 16.jpg';
 const CYNOPHILE_DESIGNER_PRIMARY = '/Screenshot 2026-04-20 at 16.03.32 1.jpg';
 const CYNOPHILE_DESIGNER_SECONDARY = '/Screenshot 2026-04-20 at 16.04.30 1.jpg';
 const CYNOPHILE_MATERIAL_PRIMARY = '/Screenshot 2026-04-20 at 16.12.22 1.jpg';
@@ -118,7 +123,7 @@ const BOOK_DISPLAY_CONFIGS: Record<SelectedBookId, BookDisplayConfig> = {
         noteLines: ['The book is located', 'here in the library:', 'AV-190830'],
         dots: [{ x: 67, y: 166 }],
         lines: [{ from: { x: 67, y: 166 }, to: { x: 640, y: 418 } }],
-        cards: [{ text: 'klima', x: 565, y: 361, width: 142, height: 81, rotation: -14 }],
+        cards: [{ text: 'Mass Made Units', x: 529, y: 361, width: 213, height: 81, rotation: -14 }],
         safeZones: [{ x: 417, y: 112, width: 421, height: 554 }],
         highlightedPosts: { top: [0], bottom: [] },
       },
@@ -664,23 +669,30 @@ function BaseView({
             <div className="rail-track rail-track--base">
               <button
                 type="button"
-                className="related-cover-button related-cover-button--base"
-                aria-label="Locate klima"
+                className="rail-item rail-item--mass rail-item-button"
+                aria-label="Locate Mass Made Units"
                 onClick={onLocate}
               >
-                <img className="related-cover-image" src={WORDS_DESIGNER_PRIMARY} alt="klima cover" />
+                <img className="book__image" src={massMadeUnits} alt="Mass Made Units cover" />
               </button>
 
-              <article className="related-cover-card related-cover-card--base" aria-label="New Dark Age">
+              <article
+                className="rail-item rail-item--curious"
+                aria-label="The Curious Fall of a Child Who Knew Nothing and Became Everything"
+              >
                 <img
-                  className="related-cover-image"
-                  src={WORDS_DESIGNER_SECONDARY}
-                  alt="New Dark Age cover"
+                  className="book__image"
+                  src={curiousFall}
+                  alt="The Curious Fall of a Child Who Knew Nothing and Became Everything page spread"
                 />
               </article>
 
-              <article className="related-cover-card related-cover-card--base" aria-label="Caractères">
-                <img className="related-cover-image" src={WORDS_DESIGNER_TERTIARY} alt="Caractères cover" />
+              <article className="rail-item rail-item--schriften" aria-label="Schriften Lettering Ecritures">
+                <img
+                  className="book__image"
+                  src={WORDS_DESIGNER_SCHRIFTEN}
+                  alt="Schriften Lettering Ecritures cover"
+                />
               </article>
             </div>
           )}
@@ -778,41 +790,65 @@ function ReturnedView({
               </article>
             </div>
           ) : (
-            <div className="rail-track rail-track--returned">
-              <button
-                type="button"
-                className="returned-cluster returned-cluster-button"
-                aria-label="Locate returned-with selection"
-                onClick={onLocate}
-              >
-                <div className="returned-stage__tote" aria-hidden="true">
-                  <div className="returned-stage__tote-print returned-stage__tote-print--left" />
-                  <div className="returned-stage__tote-print returned-stage__tote-print--right" />
-                  <svg
-                    className="returned-stage__strap"
-                    viewBox="0 0 360 470"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M35 430C48 325 83 250 135 165C168 110 184 78 194 66C204 54 214 49 222 58C230 67 232 85 232 111C232 167 230 248 227 368"
-                      stroke="#EA0C10"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
+            <div className="rail-track rail-track--returned rail-track--returned-words">
+              <div className="returned-stage__words-canvas">
+                <button
+                  type="button"
+                  className="returned-stage__words-stack returned-stage__words-stack--one"
+                  aria-label="Locate returned-with selection"
+                  onClick={onLocate}
+                >
+                  <div className="returned-stage__tote returned-stage__tote--words" aria-hidden="true">
+                    <div className="returned-stage__tote-print returned-stage__tote-print--left" />
+                    <div className="returned-stage__tote-print returned-stage__tote-print--right" />
+                    <svg
+                      className="returned-stage__strap"
+                      viewBox="0 0 360 470"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M35 430C48 325 83 250 135 165C168 110 184 78 194 66C204 54 214 49 222 58C230 67 232 85 232 111C232 167 230 248 227 368"
+                        stroke="#EA0C10"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
 
+                  <img
+                    className="returned-stage__decadrages returned-stage__decadrages--words"
+                    src={decadragesCover}
+                    alt="Décadrages Céline Sciamma cover"
+                  />
+                </button>
+
+                {/* <div className="returned-stage__magenta-book returned-stage__magenta-book--words" aria-hidden="true">
+                  <div className="returned-stage__magenta-inset" />
+                  <div className="returned-stage__magenta-letter">d</div>
+                </div> */}
+
+                <img className="returned-stage__words-related returned-stage__words-related--klima" src={WORDS_RETURNED_KLIMA} alt="klima cover" />
                 <img
-                  className="returned-stage__decadrages"
-                  src={decadragesCover}
-                  alt="Décadrages Céline Sciamma cover"
+                  className="returned-stage__words-related returned-stage__words-related--air"
+                  src={WORDS_RETURNED_AIR}
+                  alt="Air Power / Peace Power cover"
                 />
-              </button>
-
-              <div className="returned-stage__magenta-book" aria-hidden="true">
-                <div className="returned-stage__magenta-inset" />
-                <div className="returned-stage__magenta-letter">d</div>
+                <img
+                  className="returned-stage__words-related returned-stage__words-related--smlxl"
+                  src={WORDS_RETURNED_SMLXL}
+                  alt="S,M,L,XL cover"
+                />
+                <img
+                  className="returned-stage__words-related returned-stage__words-related--production"
+                  src={WORDS_RETURNED_PRODUCTION}
+                  alt="The Production Issue cover"
+                />
+                <img
+                  className="returned-stage__words-related returned-stage__words-related--ways"
+                  src={WORDS_RETURNED_WAYS}
+                  alt="Ways of Seeing cover"
+                />
               </div>
             </div>
           )}
@@ -901,10 +937,10 @@ function MaterialityView({
               </article>
             </div>
           ) : (
-            <div className="rail-track rail-track--materiality">
+            <div className="rail-track rail-track--materiality rail-track--materiality-words">
               <button
                 type="button"
-                className="materiality-stage__ways-button"
+                className="materiality-stage__ways-button materiality-stage__ways-button--words"
                 aria-label="Locate Ways of Seeing"
                 onClick={onLocate}
               >
@@ -915,7 +951,7 @@ function MaterialityView({
                 />
               </button>
 
-              <div className="materiality-stage__dark-age">
+              <div className="materiality-stage__dark-age materiality-stage__dark-age--words">
                 <NewDarkAgeCover />
               </div>
             </div>

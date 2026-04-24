@@ -40,6 +40,7 @@ test('renders the returning shelves layout', async ({ page }) => {
   await expect(page.locator('.selected-book-thumb')).toHaveCount(3);
   await expect(page.locator('.detail-card--info')).toContainText('Words form language');
   await expect(page.locator('.rail-viewport--base')).toBeVisible();
+  await expect(page.getByAltText('Schriften Lettering Ecritures cover')).toHaveCount(1);
   await expect
     .poll(async () =>
       page.locator('.rail-viewport--base').evaluate((node) => node.scrollWidth > node.clientWidth),
@@ -47,10 +48,10 @@ test('renders the returning shelves layout', async ({ page }) => {
     .toBe(true);
   await page.screenshot({ path: '/tmp/returning-shelves-ipad11.png' });
 
-  await page.getByRole('button', { name: 'Locate klima' }).click();
+  await page.getByRole('button', { name: 'Locate Mass Made Units' }).click();
   await expect(page.getByLabel('Library location')).toBeVisible();
   await expect(page.locator('.locator-note')).toContainText('The book is located');
-  await expect(page.locator('.locator-card')).toContainText('klima');
+  await expect(page.locator('.locator-card')).toContainText('Mass Made Units');
   await page.screenshot({ path: '/tmp/returning-shelves-location.png' });
   await page.locator('.locator-overlay').click({ position: { x: 550, y: 300 } });
   await expect(page.getByLabel('Library location')).toBeVisible();
@@ -59,6 +60,12 @@ test('renders the returning shelves layout', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Returned with' }).click();
   await expect(page.locator('.rail-viewport--returned')).toBeVisible();
+  await expect(page.getByAltText('Words form language cover')).toHaveCount(0);
+  await expect(page.getByAltText('klima cover')).toHaveCount(1);
+  await expect(page.getByAltText('Air Power / Peace Power cover')).toHaveCount(1);
+  await expect(page.getByAltText('S,M,L,XL cover')).toHaveCount(1);
+  await expect(page.getByAltText('The Production Issue cover')).toHaveCount(1);
+  await expect(page.getByAltText('Ways of Seeing cover')).toHaveCount(1);
   await expect
     .poll(async () =>
       page.locator('.rail-viewport--returned').evaluate((node) => node.scrollWidth > node.clientWidth),
@@ -75,6 +82,7 @@ test('renders the returning shelves layout', async ({ page }) => {
   await page.getByRole('button', { name: 'Materiality' }).click();
   await expect(page.getByText('Paperback, 24 ×16 ×2.3 cm, 220 pages')).toBeVisible();
   await expect(page.locator('.rail-viewport--materiality')).toBeVisible();
+  await expect(page.getByAltText('Words form language cover')).toHaveCount(0);
   await page.screenshot({ path: '/tmp/returning-shelves-materiality.png' });
   await page.getByRole('button', { name: 'Locate Ways of Seeing' }).click();
   await expect(page.locator('.locator-note')).toContainText('DG-92352');
