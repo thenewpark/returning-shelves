@@ -331,9 +331,10 @@ img {
 .book__image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
   object-position: center center;
-  background: #ffffff;
+  background: transparent;
 }
 
 .rail-item-button {
@@ -638,21 +639,21 @@ img {
 
 .rail-item {
   flex: 0 0 auto;
+  display: block;
+  height: 100%;
+  overflow: hidden;
 }
 
 .rail-item--mass {
-  width: calc(100% * 420 / 833);
-  height: 100%;
+  aspect-ratio: 860 / 1198;
 }
 
 .rail-item--curious {
-  width: calc(100% * 333 / 833);
-  height: 100%;
+  aspect-ratio: 1331 / 1890;
 }
 
 .rail-item--schriften {
-  width: calc(100% * 286 / 833);
-  height: 100%;
+  aspect-ratio: 380 / 556;
 }
 
 .schriften-book {
