@@ -1,0 +1,7 @@
+{
+  "name": "returning-shelves",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . --listen 4173 --no-clipboard"
+  }
+}

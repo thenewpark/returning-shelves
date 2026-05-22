@@ -4,6 +4,10 @@ import { selectBook, deselectBook } from './books.js';
 import { openBook, closeBook, hideDetailView } from './animation.js';
 import { selectTab } from './tabs.js';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('../sw.js');
+}
+
 const defaultTab = document.querySelector('.tab--designer');
 if (defaultTab) selectTab(defaultTab);
 
