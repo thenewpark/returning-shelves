@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kristall LL Edu';
+  src: url('../fonts/KristallLLEdu-Ultra.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
