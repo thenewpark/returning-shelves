@@ -1,4 +1,4 @@
-const CACHE = 'returning-shelves-v1';
+const CACHE = 'returning-shelves-v2';
 const PRECACHE = [
   './',
   './index.html',
@@ -22,6 +22,12 @@ const PRECACHE = [
   './js/utils.js',
   './cover.png',
   './manifest.json',
+  './fonts/KristallLLEdu-Regular.otf',
+  './fonts/KristallLLEdu-Light.otf',
+  './fonts/KristallLLEdu-Medium.otf',
+  './fonts/KristallLLEdu-Bold.otf',
+  './fonts/KristallLLEdu-Black.otf',
+  './fonts/KristallLLEdu-Ultra.otf',
 ];
 
 self.addEventListener('install', event => {

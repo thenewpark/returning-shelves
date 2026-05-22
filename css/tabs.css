@@ -20,6 +20,8 @@
   letter-spacing: -0.34px;
   padding: 0;
   border-bottom: 1px solid #000;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .tab:first-child {
