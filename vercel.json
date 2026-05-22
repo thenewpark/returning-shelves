@@ -1,6 +1,8 @@
 {
-  "buildCommand": null,
+  "framework": null,
+  "buildCommand": "",
   "outputDirectory": ".",
+  "installCommand": "",
   "headers": [
     {
       "source": "/manifest.json",
