@@ -5,7 +5,15 @@
   <meta charset="UTF-8">
   <title>Returned Book Shelf</title>
   <link rel="icon" type="image/svg+xml" href="icon.svg" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/start.css">
+  <link rel="stylesheet" href="css/book3d.css">
+  <link rel="stylesheet" href="css/detail.css">
+  <link rel="stylesheet" href="css/tabs.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/location.css">
+  <link rel="stylesheet" href="css/connector.css">
 </head>
 
 <body>
@@ -20,10 +28,10 @@
     </div>
   </header>
   <main>
-    <!-- 배경 오버레이: book-active 시 white + gray lines 그리드로 페이드 인 -->
+    <!-- Background overlay: fades in as a white + gray-line grid when book-active -->
     <div class="bg-overlay"></div>
 
-    <!-- 시작 화면: 정적 spine 5개 (단순 div) -->
+    <!-- Start screen: 5 static spines (plain divs) -->
     <div class="static-shelf">
       <div class="static-spine static-spine--1" data-title="Brigade Cynophile Posters" data-author="Various"
         data-year="2023" data-spine-text="BRIGADE CYNOPHILE POSTERS">
@@ -49,7 +57,7 @@
 
     <div class="start-info">
       <h1 class="start-title">
-        <!-- 흰색 배경 (먼저 그려짐 — 텍스트보다 아래) -->
+        <!-- White backgrounds (painted first — below the text) -->
         <span class="title-bg title-bg--1" aria-hidden="true">
           <span class="title-text title-text--1">Returned</span>
 
@@ -62,12 +70,12 @@
           <span class="title-text title-text--3">Shelf</span>
 
         </span>
-        <!-- 텍스트 (모든 배경 위에 그려짐) -->
+        <!-- Text (rendered on top of all backgrounds) -->
       </h1>
       <p class="start-tagline">Pick up a book from the shelf,<br>explore different curations.</p>
     </div>
 
-    <!-- 클릭 시 swap 되는 3D book (시작 시 숨김) -->
+    <!-- 3D book swapped in on click (hidden on start) -->
     <div class="book-stage" id="book3d">
       <div class="book">
         <div class="front"></div>
@@ -112,7 +120,7 @@
         <button class="tab tab--materiality" data-tab="materiality">Materiality</button>
       </div>
 
-      <!-- Sub-tab: 현재 선택된 main tab(Designer)의 색을 이어받는 영역 -->
+      <!-- Sub-tab: inherits the color of the currently selected main tab (Designer) -->
       <div class="sub-tab-bar sub-tab-bar--designer">
         <h2 class="sub-tab-name">Omnigroup</h2>
         <p class="sub-tab-desc">
@@ -134,7 +142,7 @@
     </svg>
   </div>
 
-  <script type="module" src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

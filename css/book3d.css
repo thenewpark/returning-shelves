@@ -1,0 +1,133 @@
+/* ── 3D Book (id=book3d) — hidden on start, shown on swap ── */
+/* Width 48px: matches the static spine (book depth = 48) */
+/* Vertically centered within the detail view area:
+   - detail view: top 110 ~ bottom viewport_height
+   - center y = (110+H)/2; book height 300, so book bottom y = H/2+205 (from top)
+   - bottom (CSS, from bottom) = H/2 - 205 = calc(50vh - 205px) */
+#book3d {
+  width: 48px;
+  height: 300px;
+  position: absolute;
+  bottom: calc(50vh - 205px);
+  /* left is set by JS at swap time */
+  overflow: visible;
+  perspective: 2000px;
+  z-index: 2;
+  transform-origin: center center;
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  /* hidden on start */
+  opacity: 0;
+  pointer-events: none;
+}
+
+#book3d.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#book3d.faded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book {
+  position: absolute;
+  /* left: -(200-48)/2 = -76 — centers the 200px book within the 48px stage */
+  left: -76px;
+  top: 0;
+  width: 200px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateY(90deg);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book > div {
+  position: absolute;
+  left: 0;
+}
+
+/* Front (cover) — half of depth 48 = 24 */
+.front {
+  width: 200px;
+  height: 300px;
+  background-image: url('../cover.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #e0e0e0;
+  transform: translateZ(24px);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Back */
+.back {
+  width: 200px;
+  height: 300px;
+  background: #D3D3D3;
+  transform: translateZ(-24px) rotateY(180deg);
+  border-radius: 2px 0 0 2px;
+}
+
+/* Spine — width 48 (same as book depth), color #D3D3D3 when centered */
+.spine {
+  width: 48px;
+  height: 300px;
+  left: -24px;
+  background: #D3D3D3;
+  transform: rotateY(-90deg);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14px 0;
+  overflow: hidden;
+  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.08),
+    inset -1px 0 2px rgba(0, 0, 0, 0.08);
+}
+
+.spine-text {
+  color: #000;
+  font-size: 24px;
+  font-family: 'Kristall LL Edu', sans-serif;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Page edge */
+.pages {
+  width: 48px;
+  height: 300px;
+  background: #D3D3D3;
+  right: -24px;
+  left: auto;
+  transform: rotateY(90deg);
+}
+
+/* Top — depth 48; spine-side edge matches spine color (#D3D3D3) */
+.top {
+  width: 200px;
+  height: 48px;
+  background: linear-gradient(to right,
+      #D3D3D3 0%,
+      #D3D3D3 5%,
+      #f5f5f5 5%,
+      #f5f5f5 100%);
+  top: -24px;
+  transform: rotateX(90deg);
+}
+
+/* Bottom */
+.bottom {
+  width: 200px;
+  height: 48px;
+  background: linear-gradient(to right,
+      #D3D3D3 0%,
+      #D3D3D3 5%,
+      #e8e8e8 5%,
+      #e8e8e8 100%);
+  bottom: -24px;
+  top: auto;
+  transform: rotateX(-90deg);
+}

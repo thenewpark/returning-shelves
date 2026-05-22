@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* iPad Pro 11" landscape: 1194 × 834 — reference for all fixed/absolute positioning */
+  width: 1194px;
+  height: 834px;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Kristall LL Edu', sans-serif;
+}
+
+main {
+  /* full canvas for iPad Pro 11" landscape */
+  width: 1194px;
+  height: 834px;
+  position: relative;
+  overflow: hidden;
+  background-color: #dedede;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  /* 20×15 grid: 1194/20=59.7, 834/15=55.6 */
+  background-size: 59.7px 55.6px;
+}

@@ -1,0 +1,70 @@
+/* ── Book location panel (inside shelf-panel) ── */
+.book-location-panel {
+  position: absolute;
+  inset: 0;
+  padding: 44px 32px 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.book-location-panel.visible {
+  opacity: 1;
+}
+
+.location-label {
+  margin-bottom: 36px;
+}
+
+.location-label p {
+  font-family: 'Kristall LL Edu', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 1.45;
+  color: #000;
+  margin: 0;
+}
+
+.library-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+.library-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.library-spine {
+  width: 38px;
+  height: 240px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.library-spine--light {
+  background: #C5C5C5;
+}
+
+.library-spine--selected {
+  background: #7E7E7E;
+}
+
+.library-spine--mid {
+  background: #999;
+}
+
+.spine-circle {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #000;
+  background: #fff;
+}

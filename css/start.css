@@ -1,0 +1,192 @@
+/* ── Background overlay: white + gray-line grid matching the detail view, shown when book-active ── */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 59.7px 55.6px;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+body.book-active .bg-overlay {
+  opacity: 1;
+}
+
+/* ── Static shelf: 5 static spines on the start screen ── */
+.static-shelf {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.static-spine {
+  position: absolute;
+  bottom: 0px;
+  width: 48px;
+  background: #ffffff;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14px 0;
+  transform-origin: bottom center;
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.06),
+    inset -1px 0 2px rgba(0, 0, 0, 0.06);
+}
+
+.static-spine-text {
+  color: #000;
+  font-size: 24px;
+  font-family: 'Kristall LL Edu', sans-serif;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Per-spine position, height, and tilt (from Figma design) */
+.static-spine--1 {
+  left: 120px;
+  height: 830px;
+  transform: rotate(-8deg);
+}
+
+.static-spine--2 {
+  left: 180px;
+  height: 624px;
+  width: 72px;
+  transform: rotate(-2deg);
+}
+
+.static-spine--3 {
+  left: 285px;
+  height: 670px;
+  transform: rotate(-5deg);
+}
+
+.static-spine--4 {
+  left: 333px;
+  height: 770px;
+  transform: rotate(-3deg);
+}
+
+.static-spine--5 {
+  left: 630px;
+  bottom: 12px;
+  height: 660px;
+  width: 64px;
+  transform: rotate(-25deg);
+  z-index: 4;
+}
+
+.static-spine--hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ── Start info (title + tagline on the right) ── */
+/* 1 grid cell: 59.7px wide, 55.6px tall */
+/* Each line is absolutely positioned to precise grid coordinates, including overlaps */
+.start-info {
+  position: absolute;
+  inset: 0;
+  /* children are positioned relative to the full canvas */
+  z-index: 1;
+  pointer-events: none;
+  transform: translateX(0);
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease;
+}
+
+body.book-active .start-info {
+  /* slide out to the right and fully hide */
+  transform: translateX(calc(100% + 80px));
+  opacity: 0;
+}
+
+.start-title {
+  margin: 0;
+  font-weight: 400;
+  /* spans are absolute, so .start-title itself has no layout footprint */
+}
+
+/* White background — painted first (below text) */
+.title-bg {
+  position: absolute;
+  background: #ffffff;
+  height: 166.8px;
+  /* 3 grid rows tall */
+}
+
+/* Text — appears after backgrounds in DOM order, so it renders on top of all backgrounds */
+.title-text {
+  position: relative;
+  height: 166.8px;
+  top: 0;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  font-family: 'Kristall LL Edu', sans-serif;
+  font-size: 113px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #000;
+  z-index: 2;
+}
+
+/* Line 1 "Returned": 9×3 cells, 1 cell from right, rows 4-7 (bottom 390.2) */
+.title-bg--1,
+.title-text--1 {
+  width: 537.3px;
+  right: 59.7px;
+  bottom: 390.2px;
+}
+
+/* Line 2 "Book": 5×3 cells, flush right, rows 6-9 (1 cell overlap with Line 1) */
+.title-bg--2,
+.title-text--2 {
+  width: 298.5px;
+  right: 0;
+  bottom: 279px;
+}
+
+/* Line 3 "Shelf": 5×3 cells, 3 cells from right, rows 8-11 (1 cell overlap with Line 2) */
+.title-bg--3,
+.title-text--3 {
+  width: 298.5px;
+  right: 179.1px;
+  bottom: 167.8px;
+}
+
+.start-tagline {
+  position: absolute;
+  background: #84FF86;
+  width: 537.3px;
+  height: 112.2px;
+  right: 0;
+  bottom: 54.6px;
+  font-family: 'Kristall LL Edu', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.34px;
+  line-height: 1.3;
+  color: #000;
+  margin: 0;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

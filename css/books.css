@@ -1,0 +1,277 @@
+/* ── Related books ── */
+.related-book {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.related-cover {
+  /* book aspect ratio: approx. 2:3 (width:height) */
+  width: 347px;
+  height: 460px;
+  top: -9px;
+  background-color: #f5f5f5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Omnigroup series covers (cropped regions of a single omnigroup-series.png) */
+.related-cover--lab-east {
+  background-image: url('../covers/omnigroup-series.png');
+  background-size: 200% auto;
+  background-position: 0% 0%;
+  background-color: #565a3c;
+}
+
+.related-cover--studies {
+  background-image: url('../covers/omnigroup-series.png');
+  background-size: 200% auto;
+  background-position: 100% 0%;
+  background-color: #565a3c;
+}
+
+.related-cover--mass-made {
+  background-image: url('../covers/omnigroup-series.png');
+  background-size: auto 200%;
+  background-position: 50% 100%;
+  background-color: #565a3c;
+}
+
+/* Designer tab book covers — each at its native aspect ratio (height 460 baseline) */
+.related-cover--assemblies {
+  background-image: url('../covers/assemblies.png');
+  background-size: cover;
+  background-position: center;
+  width: 347px;
+}
+
+.related-cover--downunder {
+  background-image: url('../covers/downunder.png');
+  background-size: cover;
+  background-position: center;
+  width: 324px;
+}
+
+.related-cover--schriften {
+  background-image: url('../covers/schriften.png');
+  background-size: cover;
+  background-position: center;
+  width: 315px;
+}
+
+/* Down Under by Formafantasma */
+.related-cover--down-under {
+  background-image: url('../covers/down-under.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f5f0;
+}
+
+/* ── Returned With tab stack images ──
+   Fixed height 460px; width preserves native aspect ratio so no part of the image is clipped */
+.related-cover--stack01,
+.related-cover--stack02,
+.related-cover--stack03 {
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+}
+
+/* stack01: 460×455 native → width 465 at height 460 */
+.related-cover--stack01 {
+  background-image: url('../covers/stack01.png');
+  width: 465px;
+}
+
+/* stack02: 599×444 native → width 621 at height 460 */
+.related-cover--stack02 {
+  background-image: url('../covers/stack02.png');
+  width: 621px;
+}
+
+/* stack03: 365×460 native → width 365 at height 460 */
+.related-cover--stack03 {
+  background-image: url('../covers/stack03.png');
+  width: 365px;
+}
+
+/* Individual book covers — used in other tabs or contexts */
+.related-cover--macguffin {
+  background-image: url('../covers/macguffin-trousers.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+}
+
+.related-cover--klima {
+  background-image: url('../covers/klima.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #c44ed5;
+}
+
+.related-cover--decadrages {
+  background-image: url('../covers/decadrages.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #c63d2d;
+}
+
+.related-cover--michel-ritter {
+  background-image: url('../covers/michel-ritter.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #7a9135;
+}
+
+.related-cover--smlxl {
+  background-image: url('../covers/smlxl.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #c0c0c0;
+}
+
+.related-cover--exhibition-cover {
+  background-image: url('../covers/exhibition-cover.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #ffffff;
+}
+
+/* ── Materiality tab book covers — each at its native aspect ratio (height 460 baseline) ── */
+.related-cover--ways-of-seeing {
+  background-image: url('../covers/ways-of-seeing.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #2b2b2b;
+  width: 281px;
+}
+
+.related-cover--caracteres {
+  background-image: url('../covers/caracteres.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #d8d8d8;
+  width: 314px;
+}
+
+.related-cover--new-dark-age {
+  background-image: url('../covers/new-dark-age.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #000000;
+  width: 296px;
+}
+
+.related-label {
+  position: relative;
+  top: -9px;
+  background: #000;
+  color: #fff;
+  font-family: 'Kristall LL Edu', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  padding: 4px 10px 5px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* Right-side gradient fade — covers only the book area below the sub-tab-bar */
+/* tab-bar(57) + sub-tab-bar(111.2) = 168.2px */
+.spreads-fade {
+  position: absolute;
+  right: 0;
+  top: 168.2px;
+  bottom: 0;
+  width: 101px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(222, 222, 222, 1) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Arrow label — vertically centered within the book area */
+.spreads-arrow {
+  position: absolute;
+  right: 0px;
+  top: calc(168.2px + (100% - 168.2px) / 2);
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: -0.204px;
+  padding: 4px 8px 5px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.spreads-arrow--hidden {
+  z-index: 1;
+}
+
+/* ── Book selection backdrop ── */
+.books-backdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 168.2px;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.88);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.books-backdrop.visible {
+  opacity: 1;
+}
+
+.related-book[data-cover="assemblies"] {
+  cursor: pointer;
+}
+
+.related-book--selected {
+  z-index: 3;
+}
+
+/* ── Info card on selected book ── */
+.info-card {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-14deg);
+  width: 186px;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 14px 16px 12px;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.info-card.visible {
+  opacity: 1;
+}
+
+.info-card-text {
+  font-family: 'Kristall LL Edu', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.34px;
+  line-height: 1.2;
+  color: #000;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin: 0;
+}
